@@ -17,7 +17,7 @@ export const Input= (props) => {
 
     
     return (
-        <div>
+        <div className='container-input'>
             <label htmlFor={id} className={
                 classNames(middle ?"label-Admin-Pickers-middle":"label-Admin-Pickers",{
                         "labelError": meta.error && meta.touched,

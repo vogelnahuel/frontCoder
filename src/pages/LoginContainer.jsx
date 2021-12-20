@@ -2,19 +2,15 @@ import React, { useState } from 'react'
 import Login from './Login'
 import * as yup from "yup";
 import { VALIDATION_REGEX } from "../utils/constants";
+import { useHistory } from 'react-router';
 const LoginContainer = (props) => {
 
   // eslint-disable-next-line no-unused-vars
   const [isFetching, setisFetching] = useState(false)
-  // useEffect(() => {
+  const History = useHistory();
 
-  //   setTimeout(() => {
-  //     setisFetching(false)
-  //   }, 30);
-
-  // }, [])
     const postLogin=(values)=>{
-      console.log(values)
+      History.push('/dashboard');
     }
 
     const validationSchema = yup.object({
