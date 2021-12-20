@@ -12,13 +12,21 @@ const DashboardContainer = (props) => {
         setProductos(rta);
         setisFetching(false);
     }
+    const onClick = async (id,imagen) =>{
+ 
+         setisFetching(true);
+         const rta = await app.post(`/api/carrito/${id}/productos`,{idUser:2,foto:imagen.current.src})
+         .then(respuesta =>respuesta.data)
+         setProductos(rta);
+         setisFetching(false);
+    }
 
     useEffect(() => {
         productosGet();
     }, []);
 
     return (
-        <Dashboard {...props} productos={productos} isFetching={isFetching} />
+        <Dashboard {...props} productos={productos} isFetching={isFetching} onClick={onClick} />
     )
 }
 export default DashboardContainer;
